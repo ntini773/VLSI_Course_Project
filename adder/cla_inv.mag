@@ -1,0 +1,108 @@
+magic
+tech scmos
+timestamp 1731944170
+<< nwell >>
+rect 27 48 51 100
+rect 65 48 89 100
+rect 109 48 133 100
+rect 147 48 171 100
+<< ntransistor >>
+rect 38 16 40 36
+rect 76 16 78 36
+rect 120 16 122 36
+rect 158 16 160 36
+<< ptransistor >>
+rect 38 54 40 94
+rect 76 54 78 94
+rect 120 54 122 94
+rect 158 54 160 94
+<< ndiffusion >>
+rect 37 16 38 36
+rect 40 16 41 36
+rect 75 16 76 36
+rect 78 16 79 36
+rect 119 16 120 36
+rect 122 16 123 36
+rect 157 16 158 36
+rect 160 16 161 36
+<< pdiffusion >>
+rect 37 54 38 94
+rect 40 54 41 94
+rect 75 54 76 94
+rect 78 54 79 94
+rect 119 54 120 94
+rect 122 54 123 94
+rect 157 54 158 94
+rect 160 54 161 94
+<< ndcontact >>
+rect 33 16 37 36
+rect 41 16 45 36
+rect 71 16 75 36
+rect 79 16 83 36
+rect 115 16 119 36
+rect 123 16 127 36
+rect 153 16 157 36
+rect 161 16 165 36
+<< pdcontact >>
+rect 33 54 37 94
+rect 41 54 45 94
+rect 71 54 75 94
+rect 79 54 83 94
+rect 115 54 119 94
+rect 123 54 127 94
+rect 153 54 157 94
+rect 161 54 165 94
+<< nsubstratencontact >>
+rect 28 100 32 104
+rect 66 100 70 104
+rect 110 100 114 104
+rect 148 100 152 104
+<< polysilicon >>
+rect 38 94 40 97
+rect 76 94 78 97
+rect 120 94 122 97
+rect 158 94 160 97
+rect 38 36 40 54
+rect 76 36 78 54
+rect 120 36 122 54
+rect 158 36 160 54
+rect 38 12 40 16
+rect 76 12 78 16
+rect 120 12 122 16
+rect 158 12 160 16
+<< metal1 >>
+rect 33 104 37 107
+rect 71 104 75 107
+rect 115 104 119 107
+rect 153 104 157 107
+rect 27 100 28 104
+rect 32 100 37 104
+rect 65 100 66 104
+rect 70 100 75 104
+rect 109 100 110 104
+rect 114 100 119 104
+rect 147 100 148 104
+rect 152 100 157 104
+rect 33 94 37 100
+rect 71 94 75 100
+rect 115 94 119 100
+rect 153 94 157 100
+rect 41 36 45 54
+rect 79 36 83 54
+rect 123 36 127 54
+rect 161 36 165 54
+rect 33 6 37 16
+rect 71 6 75 16
+rect 115 6 119 16
+rect 153 6 157 16
+<< pm12contact >>
+rect 33 39 38 44
+rect 71 39 76 44
+rect 115 39 120 44
+rect 153 39 158 44
+<< metal2 >>
+rect 30 39 33 44
+rect 68 39 71 44
+rect 112 39 115 44
+rect 150 39 153 44
+<< end >>

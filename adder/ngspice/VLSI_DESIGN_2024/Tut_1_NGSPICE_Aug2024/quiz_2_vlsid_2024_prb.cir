@@ -1,0 +1,63 @@
+*Roll Number: Test 
+*Name: Test
+
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param LAMBDA=0.09u
+.param width_P={40*LAMBDA}
+.param width_N={20*LAMBDA}
+* CALCULATE C_LOAD VLAUE AS PER THE GIVEN INSTRUCTION
+.param C_LOAD=109fF
+.global gnd vdd
+
+Vdd	vdd	gnd	'SUPPLY'
+vin_a a 0 pulse 0 1.8 0ns 100ps 100ps 4.9ns 10ns
+vin_b b 0 pulse 0 1.80 0ns 100ps 100ps 9.9ns 20ns
+vin_s n 0 pwl (0 0v 52.9ns 0v 53ns 1.8v 100ns 1.8v)
+
+.subckt test y x k1 k2 vdd gnd
+M1      d1       x       gnd     gnd  CMOSN   W={width_N}   L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+M2      y       K1       d1     gnd  CMOSN   W={width_N}   L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+M3      y       K2       s3     vdd  CMOSP   W={width_P}   L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+M4      s3       x       vdd     vdd  CMOSP   W={width_P}   L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+.ends test
+
+.subckt vlsi yi xi vdd gnd
+M1      yi       xi       gnd     gnd  CMOSN   W={width_N}   L={2*LAMBDA}
++ AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+M2      yi       xi       vdd     vdd  CMOSP   W={width_P}   L={2*LAMBDA}
++ AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+.ends inv
+
+** Main circuit starts
+x0 n2 n vdd gnd vlsi
+x1 fout a n2 n vdd gnd test
+x2 fout b n n2 vdd gnd test
+
+CL fout 0 C_LOAD
+** Main circuit ends
+
+.tran 0.1n 100n
+
+.control
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+plot v(n)
+plot v(n) v(a) v(b) v(fout)
+set curplottitle= 'Karthik-2023102009'
+plot v(a)
+set curplottitle= 'Karthik-2023102009'
+plot v(b)
+set curplottitle= 'Karthik-2023102009'
+plot v(fout)
+set curplottitle= 'Karthik-2023102009'
+plot the asked node voltages
+
+.endc
